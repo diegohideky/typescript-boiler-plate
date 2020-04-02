@@ -1,0 +1,54 @@
+{
+  "name": "meme-fun",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "12.13.1",
+    "yarn": "1.19.0"
+  },
+  "scripts": {
+    "postinstall": "yarn build",
+    "build": "tsc -p .",
+    "build:dev": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "start": "node ./dist/app.js",
+    "start:dev": "NODE_ENV=dev nodemon src/app.ts",
+    "start:debug": "NODE_ENV=dev nodemon src/app.ts --inspect",
+    "test": "NODE_ENV=test jest --no-cache",
+    "test:watch": "NODE_ENV=test jest --no-cache --watch",
+    "test:dev": "yarn lint && yarn test",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "dc:up": "docker-compose up --build -d",
+    "dc:down": "docker-compose down",
+    "mg": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate",
+    "mg:undo": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
+    "helmet": "^3.22.0",
+    "morgan": "^1.10.0",
+    "parse-database-url": "^0.3.0",
+    "pg": "^8.0.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.6",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.3",
+    "@types/express-http-proxy": "^1.5.12",
+    "@types/helmet": "^0.0.45",
+    "@types/morgan": "^1.9.0",
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.13.0",
+    "typescript": "^3.8.3"
+  }
+}
