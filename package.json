@@ -14,17 +14,21 @@
     "start": "node ./dist/app.js",
     "start:dev": "NODE_ENV=dev nodemon src/app.ts",
     "start:debug": "NODE_ENV=dev nodemon src/app.ts --inspect",
-    "test": "NODE_ENV=test jest --no-cache",
-    "test:watch": "NODE_ENV=test jest --no-cache --watch",
+    "test": "yarn mg:test && NODE_ENV=test jest --no-cache",
+    "test:watch": "yarn mg:test NODE_ENV=test jest --no-cache --watch",
     "test:dev": "yarn lint && yarn test",
     "lint": "eslint ./src/**/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "dc:up": "docker-compose up --build -d",
     "dc:down": "docker-compose down",
     "mg": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate",
-    "mg:undo": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo"
+    "mg:undo": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo",
+    "mg:test": "NODE_ENV=test node_modules/.bin/sequelize db:migrate",
+    "mg:test:undo": "NODE_ENV=test node_modules/.bin/sequelize db:migrate:undo"
   },
   "dependencies": {
+    "@types/jest": "^25.1.5",
+    "@types/supertest": "^2.0.8",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -32,11 +36,13 @@
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
     "helmet": "^3.22.0",
+    "jest": "^25.2.7",
     "morgan": "^1.10.0",
     "parse-database-url": "^0.3.0",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.5"
+    "sequelize": "^5.21.5",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
