@@ -40,7 +40,7 @@ const update = async (req: Request, res: Response): Promise<Response> => {
   }
 }
 
-const remove = async (req: Request, res: Response) => {
+const remove = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { params } = req
 
@@ -52,9 +52,9 @@ const remove = async (req: Request, res: Response) => {
 
     const removed = await Service.removeById(+params.id)
 
-    res.status(200).json({ foo: removed })
+    return res.status(200).json({ foo: removed })
   } catch (err) {
-    res.status(400).json({ err })
+    return res.status(400).json({ err })
   }
 }
 
