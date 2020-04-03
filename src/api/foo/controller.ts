@@ -1,34 +1,28 @@
 import { Request, Response } from 'express'
-import Service from './service';
+import Service from './service'
 
-const findAll = async (req: Request, res: Response) => {
+const findAll = async (req: Request, res: Response): Promise<Response> => {
   try {
     const foo = await Service.findAll()
 
-    res.status(200).json({
-      foo, 
-      message: 'success'
-    });
+    return res.status(200).json({ foo })
   } catch (err) {
-    res.status(400).json({ err })
+    return res.status(400).json({ err })
   }
 }
 
-const save = async (req: Request, res: Response) => {
+const save = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { body } = req
     const foo = await Service.save(body)
 
-    res.status(200).json({
-      foo, 
-      message: 'success'
-    });
+    return res.status(200).json({ foo })
   } catch (err) {
-    res.status(400).json({ err })
+    return res.status(400).json({ err })
   }
 }
 
-const update = async (req: Request, res: Response) => {
+const update = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { params, body } = req
 
@@ -40,12 +34,9 @@ const update = async (req: Request, res: Response) => {
 
     const updated = await Service.updateById(+params.id, body)
 
-    res.status(200).json({
-      foo: updated,
-      message: 'success'
-    });
+    return res.status(200).json({ foo: updated })
   } catch (err) {
-    res.status(400).json({ err })
+    return res.status(400).json({ err })
   }
 }
 
@@ -61,10 +52,7 @@ const remove = async (req: Request, res: Response) => {
 
     const removed = await Service.removeById(+params.id)
 
-    res.status(200).json({
-      foo: removed,
-      message: 'success'
-    });
+    res.status(200).json({ foo: removed })
   } catch (err) {
     res.status(400).json({ err })
   }

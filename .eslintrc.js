@@ -32,6 +32,7 @@ module.exports = {
     ],
     'class-methods-use-this': 0,
     '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

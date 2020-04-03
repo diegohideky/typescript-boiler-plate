@@ -17,17 +17,12 @@
     "test": "NODE_ENV=test jest --no-cache",
     "test:watch": "NODE_ENV=test jest --no-cache --watch",
     "test:dev": "yarn lint && yarn test",
-    "lint": "eslint ./src/**/*.ts",
+    "lint": "eslint ./src/**/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "dc:up": "docker-compose up --build -d",
     "dc:down": "docker-compose down",
     "mg": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate",
     "mg:undo": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint"
-    }
   },
   "dependencies": {
     "body-parser": "^1.19.0",

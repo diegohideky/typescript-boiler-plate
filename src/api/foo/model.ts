@@ -1,5 +1,5 @@
-import db from '../../config/db';
-import Sequelize from 'sequelize';
+import Sequelize from 'sequelize'
+import db from '../../config/db'
 
 const Foo = db.define('foo', {
   id: {
@@ -22,6 +22,6 @@ const Foo = db.define('foo', {
   },
 }, {
   freezeTableName: true,
-});
+})
 
-export default Foo;
+export default Foo

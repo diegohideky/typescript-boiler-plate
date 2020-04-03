@@ -1,25 +1,15 @@
-import { Foo, FooModel } from './interface'
+import { Foo } from './interface'
 import Repo from './repository'
 
-const findAll = async (): Promise<Array<Foo>> => {
-  return Repo.findAll()
-}
+const findAll = async (): Promise<Array<Foo>> => Repo.findAll()
 
-const findById = async (id: number): Promise<Foo> => {
-  return Repo.findById(id)
-}
+const findById = async (id: number): Promise<Foo> => Repo.findById(id)
 
-const save = async (foo: Foo): Promise<Foo> => {
-  return Repo.save(foo)
-}
+const save = async (foo: Foo): Promise<Foo> => Repo.save(foo)
 
-const updateById = async (id: number, foo: Foo): Promise<Foo> => {
-  return Repo.updateById(id, foo)
-}
+const updateById = async (id: number, foo: Foo): Promise<Foo> => Repo.updateById(id, foo)
 
-const removeById = async (id: number): Promise<Foo> => {
-  return Repo.removeById(id)
-}
+const removeById = async (id: number): Promise<Foo> => Repo.removeById(id)
 
 export default {
   findAll,
