@@ -31,8 +31,20 @@ module.exports = {
       }
     ],
     'class-methods-use-this': 0,
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        'js': 'never',
+        'jsx': 'never',
+        'ts': 'never',
+        'tsx': 'never'
+      }
+    ]
   },
   settings: {
+    
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

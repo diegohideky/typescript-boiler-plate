@@ -38,9 +38,6 @@ const update = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'not_found' })
     }
 
-    console.log({ id: +params.id })
-    console.log({ body })
-
     const updated = await Service.updateById(+params.id, body)
 
     res.status(200).json({

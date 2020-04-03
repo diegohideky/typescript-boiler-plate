@@ -6,7 +6,7 @@ import morgan from 'morgan'
 import cors from '../middlewares/cors'
 
 export default (app: Application): void => {
-app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
   app.use(cookieParser())
   app.use(cors)
