@@ -24,6 +24,11 @@
     "mg": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate",
     "mg:undo": "NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
