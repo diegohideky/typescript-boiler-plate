@@ -1,5 +1,5 @@
 {
-  "name": "meme-fun",
+  "name": "top-ts-boiler-plate",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -11,11 +11,12 @@
     "postinstall": "yarn build",
     "build": "tsc -p .",
     "build:dev": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "start": "node ./dist/app.js",
-    "start:dev": "NODE_ENV=dev nodemon src/app.ts",
-    "start:debug": "NODE_ENV=dev nodemon src/app.ts --inspect",
-    "test": "yarn mg:test && NODE_ENV=test jest --no-cache",
-    "test:watch": "yarn mg:test NODE_ENV=test jest --no-cache --watch",
+    "start": "node ./dist/server.js",
+    "start:dev": "NODE_ENV=dev nodemon src/server.ts",
+    "start:debug": "NODE_ENV=dev nodemon src/server.ts --inspect",
+    "pretest": "yarn mg:test",
+    "test": "NODE_ENV=test jest --no-cache",
+    "test:watch": "yarn test --watch",
     "test:dev": "yarn lint && yarn test",
     "lint": "eslint ./src/**/**/*.ts",
     "lint:fix": "yarn lint --fix",
@@ -65,6 +66,7 @@
     "nodemon": "^2.0.2",
     "sequelize-cli": "^5.5.1",
     "sucrase": "^3.13.0",
+    "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   }
 }

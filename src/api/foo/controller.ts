@@ -34,7 +34,7 @@ const update = async (req: Request, res: Response): Promise<Response> => {
 
     const updated = await Service.updateById(+params.id, body)
 
-    return res.status(200).json({ foo: updated })
+    return res.status(204).json({ foo: updated })
   } catch (err) {
     return res.status(400).json({ err })
   }
