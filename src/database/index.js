@@ -26,5 +26,8 @@ module.exports = {
   database: credentials.database,
   host: credentials.host,
   dialect: 'postgres',
-  logging: false
+  logging: false,
+  define: {
+    timestamps: true,
+  }
 }

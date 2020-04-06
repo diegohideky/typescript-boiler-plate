@@ -1,8 +1,7 @@
 import request from 'supertest'
-import { Op } from 'sequelize'
 import app from '../../../app'
 import Foo from '../model'
-import Util from './foo.util'
+import Util from './util'
 
 const ENDPOINT = '/api/v1/foo'
 
